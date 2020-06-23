@@ -33,8 +33,11 @@ public class CangjieContextCommand {
     @SneakyThrows
     @ShellMethod(value = "change the context folder", key = "cd")
     public String cd(String path) {
-        cangjieContext.switchPath(path);
-        return "cd the path:" + Paths.get(cangjieContext.getWorkspace().getAbsolutePath());
-    }
+        try {
+            cangjieContext.switchPath(path);
+            return "cd the path:" + Paths.get(cangjieContext.getWorkspace().getAbsolutePath());
+        }catch (Exception e){
+            return e.getLocalizedMessage();
+        }}
 
 }

@@ -35,6 +35,10 @@ public class CangjieContext implements InitializingBean {
         if (Objects.equals(path, ".")) {
             return;
         }
+        if (Objects.equals(path, "/")) {
+            workspace = new File("/");
+            return;
+        }
         if (Objects.equals(path, "..")) {
             workspace = workspace.getParentFile();
             return;
@@ -43,10 +47,15 @@ public class CangjieContext implements InitializingBean {
             return;
         }
         if (path.indexOf("~") == 0) {
-            workspace = new File(path.replace("~", Objects.requireNonNull(environment.getProperty(USER_DIR_KEY))));
+            workspace = new File(path.replace("~", Objects.requireNonNull(environment.getProperty(USER_HOME_KEY))));
             return;
         }
-        workspace = new File(workspace, path);
-
+        File newWorkspace = new File(workspace, path);
+        if (newWorkspace.exists() && newWorkspace.isDirectory()) {
+            workspace = newWorkspace;
+            return;
+        }
+        throw new IllegalStateException("The folder（" +
+                newWorkspace.getAbsolutePath() + "） don't exit or isn't a folder");
     }
 }
