@@ -34,6 +34,7 @@
     <orderEntry type="library" name="Maven: org.springframework.shell:spring-shell-jcommander-adapter:2.0.0.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.shell:spring-shell-table:2.0.0.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-beans:5.2.7.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: commons-io:commons-io:2.6" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-data-neo4j:2.3.1.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter:2.3.1.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot:2.3.1.RELEASE" level="project" />

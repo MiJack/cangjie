@@ -43,11 +43,6 @@ public class Commands {
         System.out.println("You said " + text);
     }
 
-    @ShellMethod("Add numbers.")
-    public int add(int a, int b, int c) {
-        return a + b + c;
-    }
-
     @ShellMethod("Fails with an exception. Shows enum conversion.")
     public void fail(ElementType elementType) {
         throw new IllegalArgumentException("You said " + elementType);

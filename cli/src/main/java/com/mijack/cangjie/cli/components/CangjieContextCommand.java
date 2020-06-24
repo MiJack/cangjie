@@ -36,8 +36,31 @@ public class CangjieContextCommand {
         try {
             cangjieContext.switchPath(path);
             return "cd the path:" + Paths.get(cangjieContext.getWorkspace().getAbsolutePath());
-        }catch (Exception e){
+        } catch (Exception e) {
             return e.getLocalizedMessage();
-        }}
+        }
+    }
+
+    @SneakyThrows
+    @ShellMethod(value = "add file to context", key = "add")
+    public String add(String file) {
+        try {
+            cangjieContext.addFile(file);
+            return "cd the path:" + Paths.get(cangjieContext.getWorkspace().getAbsolutePath());
+        } catch (Exception e) {
+            return e.getLocalizedMessage();
+        }
+    }
+
+    @SneakyThrows
+    @ShellMethod(value = "list file to context", key = "ls-file")
+    public String lsFile() {
+        try {
+            return cangjieContext.listContextFiles().stream().map(File::getAbsolutePath).collect(Collectors.joining("\n"));
+        } catch (Exception e) {
+            return e.getLocalizedMessage();
+        }
+    }
+
 
 }
